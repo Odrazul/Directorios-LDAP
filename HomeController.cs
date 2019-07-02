@@ -30,6 +30,35 @@ namespace ConexionesDirectorios.Controllers
         }
 
         [HttpPost]
+        public JsonResult ValidateLdapUser(string user)
+        {
+            Boolean userExists = false;
+            SearchResultCollection sResults = null;
+            string path = "LDAP://Falabella.com";
+            string criterios = "(&(objectClass=user)(samAccountName=" + user + "))";
+            try
+            {
+                DirectoryEntry dEntry = new DirectoryEntry(path);
+                DirectorySearcher dSearcher = new DirectorySearcher(dEntry);
+                dSearcher.Filter = criterios;
+                sResults = dSearcher.FindAll();
+
+                int result = sResults.Count;
+                if (result >= 1) {
+                    userExists = true;
+                } else
+                {
+                    userExists = false;
+                }              
+            }
+            catch(Exception ex)
+            {
+                return Json(userExists, JsonRequestBehavior.AllowGet);
+            }
+            return Json(userExists,JsonRequestBehavior.AllowGet);
+        }
+        
+        [HttpPost]
         public JsonResult SearchUserLDAP()
         {
             string username = "pruebas01";
