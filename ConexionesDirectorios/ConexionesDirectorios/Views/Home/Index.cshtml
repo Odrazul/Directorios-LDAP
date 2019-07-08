@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>GUI</h1>
+
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+
+        <p>
+            Selección del Directorio Activo
+        </p>
+        @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Buscar Usuario &raquo;</a></p>*@
+
+        <button onclick="SearchUserinLDAP()">Buscar Usuario</button>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <input type="text" id="txtUser" value="" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <input type="button" id="btnValidate" value="Validar Usuario" />
+    </div>
+</div>
