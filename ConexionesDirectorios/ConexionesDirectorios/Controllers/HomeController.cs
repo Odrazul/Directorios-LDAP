@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+//comentario de prueba
+
 namespace ConexionesDirectorios.Controllers
 {
     public class HomeController : Controller
@@ -113,6 +115,7 @@ namespace ConexionesDirectorios.Controllers
             {
                 return Json(userExists, JsonRequestBehavior.AllowGet);
             }
+
             return Json(userExists, JsonRequestBehavior.AllowGet);
         }
 
